@@ -7,3 +7,7 @@ export const readInput = (inputFile: string): string[] => {
 export const readInputAsNumbers = (inputFile: string): number[] => {
     return readInput(inputFile).map(v => parseInt(v, 10))
 }
+
+export const readInputAsString = (inputFile: string): string => {
+    return fs.readFileSync(inputFile, 'utf8');
+}

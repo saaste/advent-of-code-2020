@@ -4,6 +4,7 @@ import {day3_step_1, day3_step_2} from './day-3'
 import {day4_step_1, day4_step_2} from './day-4'
 import {day5_step_1, day5_step_2} from './day-5'
 import {day6_step_1, day6_step_2} from './day-6'
+import {day7_step_1, day7_step_2} from './day-7'
 
 // day1_step_1();
 // console.log()
@@ -25,6 +26,10 @@ import {day6_step_1, day6_step_2} from './day-6'
 // console.log()
 // day5_step_2();
 
-day6_step_1();
+// day6_step_1();
+// console.log()
+// day6_step_2();
+
+day7_step_1();
 console.log()
-day6_step_2();
+day7_step_2();

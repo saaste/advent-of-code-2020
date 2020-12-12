@@ -1,5 +1,5 @@
-import { readInputAsNumbers } from '../helpers';
-import Graph from './graph'
+import { readInputAsNumbers } from '../helpers/input';
+import Graph from '../helpers/graph'
 
 const inputFile = `${__dirname}/input.txt`;
 

@@ -1,4 +1,4 @@
-import { readInput } from '../helpers';
+import { readInput } from '../helpers/input';
 
 const inputFile = `${__dirname}/input.txt`;
 const regexp = /([0-9]*)-([0-9]*) ([a-z]*): ([a-z]*)/i

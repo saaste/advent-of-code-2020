@@ -1,4 +1,4 @@
-import { readInputAsNumbers } from '../helpers';
+import { readInputAsNumbers } from '../helpers/input';
 
 const inputFile = `${__dirname}/input.txt`;
 

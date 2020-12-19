@@ -16,6 +16,7 @@ import { day15_step_1, day15_step_2 } from './day-15'
 import { day16_step_1, day16_step_2 } from './day-16'
 import { day17_step_1, day17_step_2 } from './day-17'
 import { day18_step_1, day18_step_2 } from './day-18'
+import { day19_step_1, day19_step_2 } from './day-19'
 
 // day1_step_1();
 // console.log()
@@ -85,6 +86,10 @@ import { day18_step_1, day18_step_2 } from './day-18'
 // console.log()
 // day17_step_2();
 
-day18_step_1();
+// day18_step_1();
+// console.log()
+// day18_step_2();
+
+day19_step_1();
 console.log()
-day18_step_2();
+day19_step_2();

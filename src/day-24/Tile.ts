@@ -9,6 +9,7 @@ export class Tile {
     isBlack: boolean;
     movements: HexVector[];
     id: string
+    preparedForChange: boolean;
 
     constructor(id: string) {
         this.x = 0;
@@ -16,6 +17,7 @@ export class Tile {
         this.isBlack = false;
         this.id = id;
         this.movements = this.parseMoves();
+        this.preparedForChange = false;
     }
 
     public switchColor = () => {
@@ -28,6 +30,17 @@ export class Tile {
             this.x += move.x;
             this.z += move.z
         }
+    }
+
+    public prepareForChange = () => {
+        this.preparedForChange = true;
+    }
+
+    public changeIfPrepared = () => {
+        if (this.preparedForChange) {
+            this.isBlack = !this.isBlack;
+        }
+        this.preparedForChange = false;
     }
 
     private parseMoves = (): HexVector[] => {

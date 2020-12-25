@@ -111,10 +111,10 @@ import { day25_step_1, day25_step_2 } from './day-25'
 // console.log()
 // day23_step_2();
 
-// day24_step_1();
-// console.log()
-// day24_step_2();
-
-day25_step_1();
+day24_step_1();
 console.log()
-day25_step_2();
+day24_step_2();
+
+// day25_step_1();
+// console.log()
+// day25_step_2();

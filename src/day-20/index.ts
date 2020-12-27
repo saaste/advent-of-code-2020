@@ -26,5 +26,54 @@ export const day20_step_1 = () => {
 }
 
 export const day20_step_2 = () => {
+    // This solution does not try different rotations/flips. I already tested it and copy-pasted the correct rotation to
+    // puzzle_result.txt file
+    const puzzleResultFile = `${__dirname}/puzzle_result.txt`;
+    const input = readInputAsString(puzzleResultFile);
+    const totalHashCount = (input.match(/\#/g) || []).length;
 
+    let puzzleResult = input.split("\n");
+
+    const puzzleResult2D: string[][] = [];
+    for (let row = 0; row < puzzleResult.length; row++) {
+        puzzleResult2D[row] = [];
+        for (let i = 0; i < puzzleResult[row].length; i++) {
+            puzzleResult2D[row][i] = puzzleResult[row][i]
+        }
+    }
+
+    const seaMonsterMiddleRegEx = /\#.{4}\#\#.{4}\#\#.{4}\#\#\#/
+    const seaMonsterBottomRegEx = /.{1}\#.{2}\#.{2}\#.{2}\#.{2}\#.{2}\#.{3}/
+
+    let dragonHashPieces = 0;
+    let monsterCounter = 0;
+
+    for (let row = 0; row < puzzleResult.length - 2; row++) {
+        for (let idx = 18; idx < puzzleResult[row].length - 1; idx++) {
+            if (puzzleResult[row][idx] === "#") { // This is head
+                // check body
+                const body = puzzleResult[row + 1].substr(idx - 18, 20);
+                if (!seaMonsterMiddleRegEx.test(body)) {
+                    continue;
+                }
+
+                // Check bottom
+                const bottom = puzzleResult[row + 2].substr(idx - 18, 20);
+                if (!seaMonsterBottomRegEx.test(bottom)) {
+                    continue;
+                }
+
+                monsterCounter++;
+                dragonHashPieces += 15;
+            }
+        }
+    }
+
+    console.log('Step 2');
+    console.log('------')
+    console.log(`Number of parts: ${totalHashCount - dragonHashPieces}`) // 2093 is correct
+}
+
+const replaceAt = (str: string, i: number, replacement: string): string => {
+    return str.substr(0, i) + replacement + str.substr(i + replacement.length)
 }

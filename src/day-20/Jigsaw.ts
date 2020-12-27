@@ -102,14 +102,57 @@ export class Jigsaw {
         return [newX, newY]
     }
 
-    private printSolution = (): void => {
-        console.log()
-        for (let y = 0; y < this.sideLength; y++) {
-            for (let x = 0; x < this.sideLength; x++) {
-                console.log(this.solution[y][x].draw())
+    public printSolution = (): string => {
+        let result = ""
+        // Raw result
+        // for (let pieceY = 0; pieceY < this.solution.length; pieceY++) {
+        //     for (let rowY = 0; rowY < this.solution[pieceY][0].shape.length; rowY++) {
+        //         for (let pieceX = 0; pieceX < this.solution[pieceY].length; pieceX++) {
+        //             const row = this.solution[pieceY][pieceX].shape[rowY].join("")
+        //             result += row.substr(0, row.length);
+        //         }
+        //         result += "\n"
+        //     }
+        // }
+
+        // Pieces splitted
+        // for (let pieceY = 0; pieceY < this.solution.length; pieceY++) {
+        //     for (let rowY = 0; rowY < this.solution[pieceY][0].shape.length; rowY++) {
+        //         for (let pieceX = 0; pieceX < this.solution[pieceY].length; pieceX++) {
+        //             const row = this.solution[pieceY][pieceX].shape[rowY].join("")
+        //             result += row.substr(0, row.length);
+        //             result += " "
+        //         }
+        //         result += "\n"
+        //     }
+        //     result += "\n"
+        // }
+
+        // Borders removed
+        // for (let pieceY = 0; pieceY < this.solution.length; pieceY++) {
+        //     for (let rowY = 1; rowY < this.solution[pieceY][0].shape.length - 1; rowY++) {
+        //         for (let pieceX = 0; pieceX < this.solution[pieceY].length; pieceX++) {
+        //             const row = this.solution[pieceY][pieceX].shape[rowY].join("")
+        //             result += row.substr(1, row.length - 2);
+        //             result += " "
+        //         }
+        //         result += "\n"
+        //     }
+        //     result += "\n"
+        // }
+
+        // Without borders and spaces
+        for (let pieceY = 0; pieceY < this.solution.length; pieceY++) {
+            for (let rowY = 1; rowY < this.solution[pieceY][0].shape.length - 1; rowY++) {
+                for (let pieceX = 0; pieceX < this.solution[pieceY].length; pieceX++) {
+                    const row = this.solution[pieceY][pieceX].shape[rowY].join("")
+                    result += row.substr(1, row.length - 2);
+                }
+                result += "\n"
             }
         }
-        console.log('-----------------------------------')
+
+        return result;
     }
 
     public getSolution = (): Piece[][] => {
